@@ -1,13 +1,17 @@
 <template>
+  <v-app>
+  <!-- <v-card width="600px" class="mx-auto mt-5"> -->
   <ul>
-    <li v-for="todo in todos" :key="todo.id">
+    <li v-for="todo in todos" :key="todo.id" class="mx-auto mt-5">
       <input type="checkbox" :checked="todo.done" @change="toggle(todo)">
       <span :class="{ done: todo.done }" @click="clickedTodo(todo)">{{ todo.text }}</span>
-      <button @click="removeTodo(todo)">remove</button>
+      <v-btn @click="removeTodo(todo)">remove</v-btn>
     </li>
-    <input placeholder="Type and Enter to add todo" @keyup.enter="addTodo" v-model="content">
-    <button @click="updateTodo(content)" v-if="flg">update</button>
+    <v-text-field class="mt-5" placeholder="Type and Enter to add todo" @keyup.enter="addTodo" v-model="content" />
+    <v-btn @click="updateTodo(content)" v-if="flg">update</v-btn>
   </ul>
+  <!-- </v-card> -->
+  </v-app>
 </template>
 
 <script>
